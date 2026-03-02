@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Império - Orçamento</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #3d300d 0%, #000000 20%, #000000 80%, #3d300d 100%);
+            min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px;
+        }
+        .container { max-width: 500px; width: 100%; text-align: center; }
+        
+        .orcamento-card {
+            background: #f5f5f5;
+            border: 2px solid #d4af37;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: left;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+        }
+        
+        h2 { color: #b8860b; margin-bottom: 20px; text-align: center; text-transform: uppercase; letter-spacing: 1px; }
+        
+        label { display: block; margin-bottom: 5px; font-weight: 700; color: #1a1a1a; font-size: 14px; }
+        
+        input, select, textarea {
+            width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 6px;
+            border: 1px solid #ccc; font-size: 16px; outline: none; font-family: inherit;
+        }
+
+        /* Estilo para a caixa de texto grande */
+        textarea { resize: none; height: 80px; }
+
+        .btn-enviar {
+            width: 100%; background: #d4af37; color: #000; border: none;
+            padding: 15px; border-radius: 8px; font-weight: 800;
+            cursor: pointer; text-transform: uppercase; transition: 0.3s;
+        }
+        .btn-enviar:hover { background: #f0d080; transform: translateY(-2px); }
+
+        .btn-voltar {
+            display: block; text-align: center; margin-top: 20px;
+            color: #f0d080; text-decoration: none; font-weight: 600; font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="orcamento-card">
+            <h2>Solicitar Orçamento</h2>
+            
+            <label>Seu Nome:</label>
+            <input type="text" id="nome" placeholder="Ex: João Silva">
+
+            <label>Sua Cidade / Bairro:</label>
+            <input type="text" id="cidade" placeholder="Onde será a instalação?">
+
+            <label>O que você precisa?</label>
+            <select id="tipo">
+                <option value="Porta Pivotante">Porta Pivotante</option>
+                <option value="Porta de Correr">Porta de Correr</option>
+                <option value="Esquadrias">Esquadrias de Alumínio</option>
+                <option value="Outros">Outros modelos</option>
+            </select>
+
+            <label>Medidas (Largura x Altura):</label>
+            <input type="text" id="medida" placeholder="Ex: 2,10 x 0,90">
+
+            <label>Observações:</label>
+            <textarea id="obs" placeholder="Algum detalhe específico? Ex: Cor da madeira, urgência..."></textarea>
+
+            <button class="btn-enviar" onclick="enviarOrcamento()">Enviar para o WhatsApp</button>
+            <a href="index.html" class="btn-voltar">← Voltar para os links</a>
+        </div>
+    </div>
+
+    <script>
+        function enviarOrcamento() {
+            const nome = document.getElementById('nome').value;
+            const cidade = document.getElementById('cidade').value;
+            const tipo = document.getElementById('tipo').value;
+            const medida = document.getElementById('medida').value;
+            const obs = document.getElementById('obs').value;
+            const telefone = "5519999742110";
+
+            if (!nome || !cidade) { 
+                alert("Por favor, preencha seu nome e a sua cidade."); 
+                return; 
+            }
+
+            // Montando a mensagem para o WhatsApp
+            let mensagem = `*Novo Orçamento - Império*%0A%0A`;
+            mensagem += `*Nome:* ${nome}%0A`;
+            mensagem += `*Local:* ${cidade}%0A`;
+            mensagem += `*Produto:* ${tipo}%0A`;
+            mensagem += `*Medida:* ${medida || 'Não informada'}%0A`;
+            
+            if(obs) {
+                mensagem += `*Obs:* ${obs}`;
+            }
+
+            const url = `https://wa.me/${telefone}?text=${mensagem}`;
+            
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

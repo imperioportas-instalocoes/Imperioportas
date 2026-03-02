@@ -1,0 +1,62 @@
+<!DOCTYPE html> <html lang="pt-BR"> <head>
+    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Império - Links</title> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; } body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            /* ✅ Fundo: Foco total no preto com brilho dourado nas pontas */
+            background: linear-gradient(135deg, #3d300d 0%, #000000 20%, #000000 80%, #3d300d 100%);
+            min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px;
+        }
+
+        .container { max-width: 680px; width: 100%; text-align: center; } .profile-section { margin-bottom: 30px; } .profile-image {
+            width: 120px; height: 120px; border-radius: 50%;
+            object-fit: cover; border: 3px solid #d4af37; margin-bottom: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.5); }
+
+        .profile-name { color: #f0d080; font-size: 28px; font-weight: 800; margin-bottom: 5px; } .profile-bio { color: #888; font-size: 15px; margin-bottom: 25px; } .links-container { display: flex; flex-direction: column; gap: 14px; } .link-item {
+            /* ✅ Ajuste: Cinza quase branco (Off-White) */
+            background: #f5f5f5; 
+            border: 1px solid #d4af37; border-radius: 8px; padding: 18px;
+            text-decoration: none;
+            color: #1a1a1a; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;
+        }
+
+        .link-item:hover {
+            transform: translateY(-2px); background: #ffffff; color: #d4af37; box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3); border-color: #f0d080;
+        }
+
+        .social-links { margin-top: 35px; display: flex; justify-content: center; gap: 15px; } .social-link {
+            width: 45px; height: 45px; 
+            border-radius: 50%; /* ✅ ÍCONE REDONDO AQUI */
+            background: #f5f5f5; display: flex; align-items: center; justify-content: center;
+            transition: 0.3s; text-decoration: none; border: 1px solid #d4af37;
+        }
+
+        .social-link:hover { background: #d4af37; transform: rotate(5deg); } .social-link i { font-size: 20px; color: #1a1a1a; transition: 0.3s; } .social-link:hover i { color: #fff; } .footer { margin-top: 50px; } .footer p { color: #555; font-size: 12px; font-weight: 600; } </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-section">
+            <img src="https://via.placeholder.com/120" alt="Logo" class="profile-image">
+            <h1 class="profile-name">Império</h1>
+            <p class="profile-bio">Conecte-se conosco através dos nossos canais oficiais</p>
+        </div>
+
+        <div class="links-container">
+            <a href="https://wa.me/5519999742110" class="link-item" target="_blank">WhatsApp</a>
+           <a href="orcamento.html" class="link-item">Orçamentos</a>
+            <a href="mailto:imperioportas114@gmail.com" class="link-item">E-mail</a>
+            <a href="https://maps.app.goo.gl/t8VsAG8KYqMGU8sR8" class="link-item" target="_blank">Localização</a>
+        </div>
+
+        <div class="social-links">
+            <a href="#" class="social-link" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 IMPÉRIO - TODOS OS DIREITOS RESERVADOS</p>
+        </div>
+    </div>
+</body>
+</html>
